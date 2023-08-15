@@ -6,10 +6,17 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./comp.component.css']
 })
 export class CompComponent implements OnInit {
+  name: string = '';
+  isHidden: boolean = false;
 
   constructor() { }
 
   ngOnInit(): void {
+  }
+  
+  hideInputAndImage() {
+    this.isHidden = !this.isHidden;
+
   }
 
 }

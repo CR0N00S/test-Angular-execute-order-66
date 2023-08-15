@@ -3,17 +3,26 @@
 <!-- <span class="current-time">Time in Thailand: {{ currentTime | date: 'hh:mm' }} (GMT+7)  </span> -->
 <header>
     <div class="d-flex justify-content-end">
-    <p class="mb-0">Time in Thailand: {{ currentTime | date: 'hh:mm:ss a' }}&nbsp;</p>
+    <p class="mb-0">Time in Thailand: {{ currentTime | date: 'hh:mm' }}&nbsp;</p>
     <p class="mb-0"> (GMT+7)&nbsp;</p>
-    <p class="mb-0">{{ currentTime | date: 'd MMMM yyyy' }}&nbsp;</p>
-    <p>
-        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
+    <p class="mb-0">{{ currentTime | date: 'd MMMM yyyy' }}</p>
+    <p style="margin-left: 10px;">
+
+        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
             <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
             <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
           </svg>
-    </p>
-    <p class="mb-0">
 
+    </p>
+    <p class="mb-0" style="margin-left: 10px;text-decoration: underline;">
+      Lorem Co Ltd
+    </p>
+    <p class="mb-0" style="margin-left: 10px;">
+
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-caret-down-fill" viewBox="0 0 16 16">
+        <path d="M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z"/>
+      </svg>
+      
     </p>
   </div>
   </header>

@@ -11,13 +11,20 @@
     height: 60%;
     padding-top: 20px;
     display: flex;
-    gap: 10px;
+    justify-content: center;
+    
  }
 
 .r_L {
     display: flex;
     justify-content: space-between;
   }
+
+  .little-gap {
+    display: flex;
+    justify-content: left; 
+    gap: 5%;
+}
 
 .form-control::placeholder {
     text-align: right;

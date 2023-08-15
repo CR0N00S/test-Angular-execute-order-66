@@ -1,1 +1,55 @@
-<p>comp works!</p>
+<h1 class="header-fix"><b>Submit Tax Filing</b></h1>
+<div class="container border border-dark rounded" style="width:60% ;height: 60%;">
+    <div class="pad-30">
+        <h2 class="pad-30"><b>1.Tax Filing Detail</b></h2>
+        <hr class="my-3 border-3">
+         <p class="pad-30">Type of filing<span class="text-danger">*</span></p>
+         <p class="pad-30">VAT Month<span class="text-danger">*</span></p>
+    </div>
+    <div class="pad-30">
+        <div>
+            <h2 class="d-flex justify-content-between"><b>2.Tax Computation</b>
+            <!-- <p class="mb-0 text-decoration-underline">View Exchange Rate</p> -->
+        </h2> 
+        </div>
+        <hr class="my-3 border-3">
+        <p><b>Provide total value taxable electronic service</b></p>
+        
+        <div class="r_L">
+            <p>1.Total value of taxable electronic service exclusive of VAT</p>
+            <div class="input-group mb-3" style="width: 30%;">
+                <input type="number" class="form-control" name="" id="" placeholder="THB">
+            </div>
+        </div>
+        
+        <div class="r_L">
+            <p>2.Total VAT to be remitted (7% of 1.)</p>
+            <div class="input-group mb-3" style="width: 30%;">
+                <input type="number" class="form-control" name="" id="" placeholder="THB">
+            </div>
+        </div>
+        
+
+        
+    </div>
+   
+</div>
+<div class="container rounded button-location"  style="padding-bottom: 20px;">
+        <button type="button" class="btn btn-outline-dark ">Back</button>
+        <button type="submit" routerLink="/pagetwo" class="btn btn-outline-dark">Next</button>
+</div>
+
+
+<div class="container">
+    <form class="form-inline">
+       <div class="form-group mb-2">
+          <input type="text" class="form-control" [(ngModel)]="name" [hidden]="isHidden">
+       </div>
+       <div class="form-group mb-2">
+          <img src="your-image-source" alt="Image" [hidden]="isHidden">
+       </div>
+       <div class="form-group mb-2">
+          <button type="button" class="btn btn-outline-dark" (click)="hideInputAndImage()">Hide</button>
+       </div>
+    </form>
+ </div>
