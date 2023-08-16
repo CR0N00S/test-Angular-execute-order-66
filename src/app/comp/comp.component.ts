@@ -28,10 +28,15 @@ export class CompComponent implements OnInit {
   }
 
   selectedMonthFromChild: string = '';
+  selectedYearFromChild: string = new Date().getFullYear().toString();
 
   onMonthSelected(month: string) {
     this.selectedMonthFromChild = month;
     console.log('Selected month from child:', month);
+  }
+  onYearSelected(year: string) {
+    this.selectedYearFromChild = year;
+    console.log('Selected year from child:', year);
   }
 
 }

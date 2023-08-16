@@ -19,6 +19,9 @@
             <p class="pad-30">VAT Month<span class="text-danger">*</span></p>
             <app-month (monthSelected)="onMonthSelected($event)"></app-month>
             <p>Selected month: {{ selectedMonthFromChild }}</p>
+
+            <app-year (yearSelected)="onYearSelected($event)"></app-year>
+            <p>Selected year: {{ selectedYearFromChild }}</p>
             <div>
                 <h2 class="d-flex justify-content-between"><b>2.Tax Computation</b></h2> 
                 <!-- <p class="mb-0 text-decoration-underline">View Exchange Rate</p> -->
