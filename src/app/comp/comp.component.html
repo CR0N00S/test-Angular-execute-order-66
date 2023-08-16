@@ -24,7 +24,6 @@
             <p>Selected year: {{ selectedYearFromChild }}</p>
             <div>
                 <h2 class="d-flex justify-content-between"><b>2.Tax Computation</b></h2> 
-                <!-- <p class="mb-0 text-decoration-underline">View Exchange Rate</p> -->
             </div>
            
             <hr class="my-3 border-3">
@@ -74,7 +73,7 @@
             <div class="r_L">
                 <p>2.Total VAT to be remitted (7% of 1.)</p>
                 <div class="input-group mb-3" style="width: 30%;">
-                    <input type="number" class="form-control" name="" id="" placeholder="THB">
+                    
                 </div>
             </div>
             <b>In case of late filling and payment,or additional filling</b>
@@ -101,8 +100,9 @@
         <button type="submit" routerLink="/pagetwo" class="btn btn-outline-dark">Next</button>
 </div>
 
-
-<div class="container">
+<app-tax-amount (taxAmountSelected)="onTaxAmountSelected($event)"></app-tax-amount>
+<p>Selected tax amount: {{ selectedTaxAmountFromChild | number }}</p>
+<!-- <div class="container">
     <form class="form-inline">
        <div class="form-group mb-2">
           <input type="text" class="form-control" [(ngModel)]="name" [hidden]="isHidden">
@@ -114,5 +114,5 @@
           <button type="button" class="btn btn-outline-dark" (click)="hideInputAndImage()">Hide</button>
        </div>
     </form>
- </div>
+ </div> -->
 

@@ -12,6 +12,8 @@ import { CompTwoComponent } from './comp-two/comp-two.component';
 import { FilingTypeComponent } from './component/filing-type/filing-type.component';
 import { MonthComponent } from './component/month/month.component';
 import { YearComponent } from './component/year/year.component';
+import { TaxAmountComponent } from './component/tax-amount/tax-amount.component';
+
 
 
 
@@ -24,7 +26,8 @@ import { YearComponent } from './component/year/year.component';
     CompTwoComponent,
     FilingTypeComponent,
     MonthComponent,
-    YearComponent
+    YearComponent,
+    TaxAmountComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,20 @@
+.input-container {
+    display: flex;
+    align-items: center;
+    position: relative;
+  }
+  
+  .input-container input {
+    flex: 1;
+    padding-right: 40px; /* Add space for the placeholder */
+  }
+  
+  .currency-placeholder {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-weight: bold;
+    color: black;
+    pointer-events: none; /* To make the span not clickable */
+  }

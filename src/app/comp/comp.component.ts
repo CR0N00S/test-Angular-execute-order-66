@@ -29,6 +29,7 @@ export class CompComponent implements OnInit {
 
   selectedMonthFromChild: string = '';
   selectedYearFromChild: string = new Date().getFullYear().toString();
+  selectedTaxAmountFromChild: number | undefined;
 
   onMonthSelected(month: string) {
     this.selectedMonthFromChild = month;
@@ -38,5 +39,7 @@ export class CompComponent implements OnInit {
     this.selectedYearFromChild = year;
     console.log('Selected year from child:', year);
   }
-
+  onTaxAmountSelected(taxAmount: number) {
+    this.selectedTaxAmountFromChild = taxAmount;
+  }
 }

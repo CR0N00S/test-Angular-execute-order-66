@@ -1,6 +1,5 @@
 <!-- <p>year works!</p> -->
 <div>
-    <!-- <h3>Select a Year</h3> -->
     <select [(ngModel)]="selectedYear" (change)="onYearSelect()">
       <option *ngFor="let year of years" [value]="year">{{ year }}</option>
     </select>
