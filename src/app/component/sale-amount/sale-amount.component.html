@@ -5,8 +5,8 @@
     <button (click)="submitAmount()">Submit</button>
   </div>
   
-  <div *ngIf="submittedAmount !== null">
-    <p>Submitted Amount: {{ submittedAmount }}</p>
+  <div *ngIf="submittedAmountNumber !== null">
     <p>Submitted Amount as Number: {{ submittedAmountNumber }}</p>
+    <p>Submitted Amount multiplied by 0.07: {{ multipliedAmount }}</p>
+    <p>Formatted Multiplied Amount: {{ multipliedAmount | number:'1.2-2' }}</p>
   </div>
-  

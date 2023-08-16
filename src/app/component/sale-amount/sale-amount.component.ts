@@ -12,8 +12,8 @@ export class SaleAmountComponent implements OnInit {
   ngOnInit(): void {
   }
   enteredAmount: string = '';
-  submittedAmount: string = '';
   submittedAmountNumber: number = 0;
+  multipliedAmount: number = 0;
 
   formatInput() {
     // Remove non-numeric and non-decimal characters
@@ -26,7 +26,12 @@ export class SaleAmountComponent implements OnInit {
   submitAmount() {
     // Remove commas and convert to a numeric value
     const cleanedValue = this.enteredAmount.replace(/,/g, '');
-    this.submittedAmount = parseFloat(cleanedValue).toFixed(2);
-    this.submittedAmountNumber = parseFloat(this.submittedAmount);
+    this.submittedAmountNumber = parseFloat(cleanedValue);
+    
+    // Perform multiplication
+    this.multipliedAmount = this.submittedAmountNumber * 0.07;
+
+    // Format multiplied amount with commas for display
+    this.multipliedAmount = parseFloat(this.multipliedAmount.toFixed(2));
   }
 }
