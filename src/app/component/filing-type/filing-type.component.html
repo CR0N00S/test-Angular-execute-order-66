@@ -1,0 +1,30 @@
+<p>filing-type works!</p>
+<label>
+    <input type="radio" value="0" [(ngModel)]="selectedOption" name="radioGroup" checked>
+    Option 1
+  </label>
+  
+  <label>
+    <input type="radio" value="1" [(ngModel)]="selectedOption" name="radioGroup">
+    Option 2
+  </label>
+  
+  
+  <div *ngIf="selectedOption === '1'">
+    <div>
+        <p>1.adsasdda</p>
+        <input type="number" [(ngModel)]="input1" [disabled]="isDisabled">
+    </div>
+    <div>
+        <p>2.adsasdda</p>
+        <input type="number" [(ngModel)]="input2" [disabled]="isDisabled">
+    </div>
+    <div>
+        <p>3.adsasdda</p>
+        <input type="number" [(ngModel)]="input3" [disabled]="isDisabled">
+    </div>
+    
+    
+  </div>
+  
+  <p>Selected Option: {{ selectedOption }}</p>

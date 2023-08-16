@@ -9,6 +9,7 @@ import { MyHeaderComponent } from './my-header/my-header.component';
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 import { CompTwoComponent } from './comp-two/comp-two.component';
+import { FilingTypeComponent } from './component/filing-type/filing-type.component';
 
 
 
@@ -17,7 +18,8 @@ import { CompTwoComponent } from './comp-two/comp-two.component';
     AppComponent,
     CompComponent,
     MyHeaderComponent,
-    CompTwoComponent
+    CompTwoComponent,
+    FilingTypeComponent
   ],
   imports: [
     BrowserModule,

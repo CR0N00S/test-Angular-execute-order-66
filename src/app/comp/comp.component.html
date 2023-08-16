@@ -3,7 +3,11 @@
     <div class="pad-30">
         <h2 class="pad-30"><b>1.Tax Filing Detail</b></h2>
         <hr class="my-3 border-3">
-         <p class="pad-30">Type of filing<span class="text-danger">*</span></p>
+            <div>
+                <p class="pad-30">Type of filing<span class="text-danger">*</span></p>
+                <app-filing-type></app-filing-type>
+            </div>
+         
          <p class="pad-30">VAT Month<span class="text-danger">*</span></p>
     </div>
     <div class="pad-30">
@@ -25,7 +29,7 @@
         <div class="r_L">
             <p>2.Total VAT to be remitted (7% of 1.)</p>
             <div class="input-group mb-3" style="width: 30%;">
-                <input type="number" class="form-control" name="" id="" placeholder="THB">
+                <input type="number" class="form-control" name="" id="" placeholder="THB" disabled>
             </div>
         </div>
         
