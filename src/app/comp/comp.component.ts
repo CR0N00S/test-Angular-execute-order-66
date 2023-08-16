@@ -27,4 +27,11 @@ export class CompComponent implements OnInit {
     this.isDisabled = !this.isDisabled;
   }
 
+  selectedMonthFromChild: string = '';
+
+  onMonthSelected(month: string) {
+    this.selectedMonthFromChild = month;
+    console.log('Selected month from child:', month);
+  }
+
 }

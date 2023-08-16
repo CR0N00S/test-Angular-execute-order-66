@@ -17,7 +17,8 @@
         <div *ngIf="filingTypeComponent.selectedOption === '0'">
 
             <p class="pad-30">VAT Month<span class="text-danger">*</span></p>
-
+            <app-month (monthSelected)="onMonthSelected($event)"></app-month>
+            <p>Selected month: {{ selectedMonthFromChild }}</p>
             <div>
                 <h2 class="d-flex justify-content-between"><b>2.Tax Computation</b></h2> 
                 <!-- <p class="mb-0 text-decoration-underline">View Exchange Rate</p> -->
@@ -47,6 +48,7 @@
         <div *ngIf="filingTypeComponent.selectedOption === '1'">
             <div style="display: flex;justify-content: space-between;">
                 <p >Tax Month<span class="text-danger">*</span></p>
+                
                 <p>Type<span class="text-danger">*</span></p>
             </div>
             

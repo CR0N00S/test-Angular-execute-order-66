@@ -10,6 +10,7 @@ import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 import { CompTwoComponent } from './comp-two/comp-two.component';
 import { FilingTypeComponent } from './component/filing-type/filing-type.component';
+import { MonthComponent } from './component/month/month.component';
 
 
 
@@ -20,7 +21,8 @@ import { FilingTypeComponent } from './component/filing-type/filing-type.compone
     CompComponent,
     MyHeaderComponent,
     CompTwoComponent,
-    FilingTypeComponent
+    FilingTypeComponent,
+    MonthComponent
   ],
   imports: [
     BrowserModule,
