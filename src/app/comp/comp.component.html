@@ -5,36 +5,89 @@
         <hr class="my-3 border-3">
             <div>
                 <p class="pad-30">Type of filing<span class="text-danger">*</span></p>
-                <app-filing-type></app-filing-type>
+                <div>
+                    <app-filing-type #filingTypeComponent></app-filing-type>
+                    <!-- <p>Selected option: {{ filingTypeComponent.selectedOption }}</p> -->
+                </div>
             </div>
-         
-         <p class="pad-30">VAT Month<span class="text-danger">*</span></p>
     </div>
     <div class="pad-30">
-        <div>
-            <h2 class="d-flex justify-content-between"><b>2.Tax Computation</b>
-            <!-- <p class="mb-0 text-decoration-underline">View Exchange Rate</p> -->
-        </h2> 
-        </div>
-        <hr class="my-3 border-3">
-        <p><b>Provide total value taxable electronic service</b></p>
-        
-        <div class="r_L">
-            <p>1.Total value of taxable electronic service exclusive of VAT</p>
-            <div class="input-group mb-3" style="width: 30%;">
-                <input type="number" class="form-control" name="" id="" placeholder="THB">
-            </div>
-        </div>
-        
-        <div class="r_L">
-            <p>2.Total VAT to be remitted (7% of 1.)</p>
-            <div class="input-group mb-3" style="width: 30%;">
-                <input type="number" class="form-control" name="" id="" placeholder="THB" disabled>
-            </div>
-        </div>
-        
 
+
+        <div *ngIf="filingTypeComponent.selectedOption === '0'">
+
+            <p class="pad-30">VAT Month<span class="text-danger">*</span></p>
+
+            <div>
+                <h2 class="d-flex justify-content-between"><b>2.Tax Computation</b></h2> 
+                <!-- <p class="mb-0 text-decoration-underline">View Exchange Rate</p> -->
+            </div>
+           
+            <hr class="my-3 border-3">
+            <p><b>Provide total value taxable electronic service</b>&nbsp;<span class="text-danger">*</span></p>
         
+            <div class="r_L">
+                <p>1.Total value of taxable electronic service exclusive of VAT</p>
+                <div class="input-group mb-3" style="width: 30%;">
+                    <input type="number" class="form-control" name="" id="" placeholder="THB">
+                </div>
+            </div>
+            
+            <div class="r_L">
+                <p>2.Total VAT to be remitted (7% of 1.)</p>
+                <div class="input-group mb-3" style="width: 30%;">
+                    <input type="number" class="form-control" name="" id="" placeholder="THB">
+                </div>
+            </div>
+        </div>
+
+
+
+
+        <div *ngIf="filingTypeComponent.selectedOption === '1'">
+            <div style="display: flex;justify-content: space-between;">
+                <p >Tax Month<span class="text-danger">*</span></p>
+                <p>Type<span class="text-danger">*</span></p>
+            </div>
+            
+
+            <div>
+                <h2 class="d-flex justify-content-between"><b>2.Tax Computation</b></h2> 
+                <!-- <p class="mb-0 text-decoration-underline">View Exchange Rate</p> -->
+            </div>
+           
+            <hr class="my-3 border-3">
+            <p><b>Provide total value taxable electronic service</b></p>
+        
+            <div class="r_L">
+                <p>1.Underdeclared Thai taxable electronic service</p>
+                <div class="input-group mb-3" style="width: 30%;">
+                    <input type="number" class="form-control" name="" id="" placeholder="THB">
+                </div>
+            </div>
+            
+            <div class="r_L">
+                <p>2.Total VAT to be remitted (7% of 1.)</p>
+                <div class="input-group mb-3" style="width: 30%;">
+                    <input type="number" class="form-control" name="" id="" placeholder="THB">
+                </div>
+            </div>
+            <b>In case of late filling and payment,or additional filling</b>
+            <div class="r_L" style="padding: 20px;">
+                <p>3.Surcharge</p>
+                <input type="number" [(ngModel)]="input1" [disabled]="isDisabled">
+            </div>
+            <div class="r_L"style="padding: 20px;" >
+                <p>4.Penalty</p>
+                <input type="number" [(ngModel)]="input2" [disabled]="isDisabled">
+            </div>
+            <div class="r_L" style="padding: 20px;">
+                    <p>5.Total amount of VAT , surcharge , and penalty to be remitted </p>
+                <input type="number" [(ngModel)]="input3" [disabled]="isDisabled">
+            </div>
+            <p style="position: relative; bottom: 35px;left: 35px;">( 2 + 3 + 4 )</p>
+          </div>
+
     </div>
    
 </div>
@@ -57,3 +110,4 @@
        </div>
     </form>
  </div>
+

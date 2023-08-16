@@ -1,30 +1,44 @@
-<p>filing-type works!</p>
-<label>
+<!-- <p>filing-type works!</p> -->
+<!-- <label>
     <input type="radio" value="0" [(ngModel)]="selectedOption" name="radioGroup" checked>
-    Option 1
+    Ordinary Filing
   </label>
   
   <label>
     <input type="radio" value="1" [(ngModel)]="selectedOption" name="radioGroup">
-    Option 2
+    Additional Filing
   </label>
   
   
   <div *ngIf="selectedOption === '1'">
-    <div>
-        <p>1.adsasdda</p>
+    <b>In case of late filling and payment,or additional filling</b>
+    <div class="r_L" style="padding: 20px;">
+        <p>3.Surcharge</p>
         <input type="number" [(ngModel)]="input1" [disabled]="isDisabled">
     </div>
-    <div>
-        <p>2.adsasdda</p>
+    <div class="r_L"style="padding: 20px;" >
+        <p>4.Penalty</p>
         <input type="number" [(ngModel)]="input2" [disabled]="isDisabled">
     </div>
-    <div>
-        <p>3.adsasdda</p>
+    <div class="r_L" style="padding: 20px;">
+            <p>5.Total amount of VAT , surcharge , and penalty to be remitted </p>
+
+
         <input type="number" [(ngModel)]="input3" [disabled]="isDisabled">
     </div>
+    
+    <p style="position: relative; bottom: 35px;left: 35px;">( 2 + 3 + 4 )</p>
     
     
   </div>
   
-  <p>Selected Option: {{ selectedOption }}</p>
+  <p>Selected: {{ selectedOption }}</p> -->
+<div style=" display: flex;gap: 30px; bottom: 30px;left: 3.5%;position: relative;">
+    <label>
+        <input type="radio" name="option" value="0" [(ngModel)]="selectedOption" checked> Ordinary Filing
+      </label>
+      <label>
+        <input type="radio" name="option" value="1" [(ngModel)]="selectedOption"> Additional Filing
+      </label>
+</div>
+  
