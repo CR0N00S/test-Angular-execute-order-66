@@ -30,6 +30,7 @@ export class CompComponent implements OnInit {
   selectedMonthFromChild: string = '';
   selectedYearFromChild: string = new Date().getFullYear().toString();
   selectedTaxAmountFromChild: number | undefined;
+  selectedSaleAmountFromChild: number = 0;
 
   onMonthSelected(month: string) {
     this.selectedMonthFromChild = month;
@@ -42,4 +43,6 @@ export class CompComponent implements OnInit {
   onTaxAmountSelected(taxAmount: number) {
     this.selectedTaxAmountFromChild = taxAmount;
   }
+  
+  
 }

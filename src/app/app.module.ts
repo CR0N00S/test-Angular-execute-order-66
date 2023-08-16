@@ -13,6 +13,7 @@ import { FilingTypeComponent } from './component/filing-type/filing-type.compone
 import { MonthComponent } from './component/month/month.component';
 import { YearComponent } from './component/year/year.component';
 import { TaxAmountComponent } from './component/tax-amount/tax-amount.component';
+import { SaleAmountComponent } from './component/sale-amount/sale-amount.component';
 
 
 
@@ -27,7 +28,8 @@ import { TaxAmountComponent } from './component/tax-amount/tax-amount.component'
     FilingTypeComponent,
     MonthComponent,
     YearComponent,
-    TaxAmountComponent
+    TaxAmountComponent,
+    SaleAmountComponent
   ],
   imports: [
     BrowserModule,

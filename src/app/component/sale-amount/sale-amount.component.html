@@ -1,0 +1,12 @@
+<!-- <p>sale-amount works!</p> -->
+<div>
+    <label for="amount">Enter Sale Amount: </label>
+    <input type="text" id="amount" [(ngModel)]="enteredAmount" (input)="formatInput()">
+    <button (click)="submitAmount()">Submit</button>
+  </div>
+  
+  <div *ngIf="submittedAmount !== null">
+    <p>Submitted Amount: {{ submittedAmount }}</p>
+    <p>Submitted Amount as Number: {{ submittedAmountNumber }}</p>
+  </div>
+  
