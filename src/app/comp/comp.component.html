@@ -6,17 +6,12 @@
             <div>
                 <p class="pad-30">Type of filing<span class="text-danger">*</span></p>
                 <div>
-
-                    <app-filing-type (filingTypeComponent)="onFilingTypeChange($event)"></app-filing-type>
-
-                    
-                    <p>Selected option: {{ selectedFilingTypeFromChild }}</p>
+                    <app-filing-type (filingTypeComponent)="onFilingTypeChange($event)"></app-filing-type> 
+                    <!-- <p>Selected option: {{ selectedFilingTypeFromChild }}</p> -->
                 </div>
             </div>
     </div>
     <div class="pad-30">
-
-
         <div *ngIf="selectedFilingTypeFromChild === '0'">
 
             <p class="pad-30">VAT Month<span class="text-danger">*</span></p>
@@ -35,16 +30,19 @@
             <div class="r_L">
                 <p>1.Total value of taxable electronic service exclusive of VAT</p>
                 <div class="input-group mb-3" style="width: 30%;">
-                    <input type="number" class="form-control" name="" id="" placeholder="THB">
+                    <!-- <input type="number" class="form-control" name="" id="" placeholder="THB"> -->
+                    <app-sale-amount (saleAmountCalculated)="onSaleAmountCalculated($event)" (submittedAmountChanged)="onSubmittedAmountChanged($event)"></app-sale-amount>
                 </div>
             </div>
             
             <div class="r_L">
                 <p>2.Total VAT to be remitted (7% of 1.)</p>
                 <div class="input-group mb-3" style="width: 30%;">
-                    <input type="number" class="form-control" name="" id="" placeholder="THB">
+                    <!-- <input type="number" class="form-control" name="" id="" placeholder="THB"> -->
+                    <app-tax-amount [multipliedAmount]="multipliedAmount"></app-tax-amount>
                 </div>
             </div>
+            
         </div>
 
 
@@ -101,8 +99,15 @@
 <div class="container rounded button-location"  style="padding-bottom: 20px;">
         <button type="button" class="btn btn-outline-dark ">Back</button>
         <button type="submit" routerLink="/pagetwo" class="btn btn-outline-dark">Next</button>
+        <button (click)="onSubmit()">Submit</button>
 </div>
 
-
+<!-- 
 <h2>test</h2>
-<app-sale-amount></app-sale-amount>
+<app-sale-amount></app-sale-amount> -->
+<!-- <app-sale-amount></app-sale-amount>
+<app-tax-amount></app-tax-amount> -->
+
+
+  
+

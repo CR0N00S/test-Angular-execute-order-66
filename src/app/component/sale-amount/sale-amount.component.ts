@@ -7,7 +7,7 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 })
 export class SaleAmountComponent implements OnInit {
 
-
+  // @Output() saleAmountCalculated: EventEmitter<number> = new EventEmitter<number>();
   constructor() { }
 
   ngOnInit(): void {
@@ -35,32 +35,37 @@ export class SaleAmountComponent implements OnInit {
 //     // Format multiplied amount with commas for display
 //     this.multipliedAmount = parseFloat(this.multipliedAmount.toFixed(2));
 //   }
-enteredAmount: string = '';
-submittedAmountNumber: number = 0;
-multipliedAmount: number = 0;
+  enteredAmount: string = '';
+  submittedAmountNumber: number = 0;
+  multipliedAmount: number = 0;
 
-updateAmount(newValue: string) {
-  // Remove non-numeric characters except decimal point and update the input value
-  const numericInput = newValue.replace(/[^0-9.]/g, '');
-  
-  // Format the numeric input with commas
-  const formattedInput = this.formatWithCommas(numericInput);
+  @Output() saleAmountCalculated: EventEmitter<number> = new EventEmitter<number>();
+  @Output() submittedAmountChanged: EventEmitter<number> = new EventEmitter<number>();
 
-  this.enteredAmount = formattedInput;
+  updateAmount(newValue: string) {
+    // Remove non-numeric characters except decimal point and update the input value
+    const numericInput = newValue.replace(/[^0-9.]/g, '');
 
-  // Update the model value
-  this.submittedAmountNumber = parseFloat(numericInput);
+    // Format the numeric input with commas
+    const formattedInput = this.formatWithCommas(numericInput);
 
-  // Update the multipliedAmount value
-  this.multipliedAmount = Math.round(this.submittedAmountNumber * 0.07 * 100) / 100;
-}
+    this.enteredAmount = formattedInput;
 
-formatWithCommas(value: string): string {
-  const parts = value.split('.');
-  parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ',');
-  return parts.join('.');
-}
+    // Update the model value
+    this.submittedAmountNumber = parseFloat(numericInput);
 
+    // Update the multipliedAmount value
+    this.multipliedAmount = Math.round(this.submittedAmountNumber * 0.07 * 100) / 100;
+
+    this.saleAmountCalculated.emit(this.multipliedAmount);
+    this.submittedAmountChanged.emit(this.submittedAmountNumber);
+  }
+
+  formatWithCommas(value: string): string {
+    const parts = value.split('.');
+    parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+    return parts.join('.');
+  }
 }
 
 
