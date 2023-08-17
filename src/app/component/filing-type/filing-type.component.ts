@@ -21,7 +21,13 @@ export class FilingTypeComponent implements OnInit {
   // toggleInputs() {
   //   this.isDisabled = !this.isDisabled;
   // }
-  selectedOption: string = '0';
+  selectedOption: string = '0'; // Initialize with default value
+
+  @Output() filingTypeComponent = new EventEmitter<string>();
+
+  selectedChange() {
+    this.filingTypeComponent.emit(this.selectedOption);
+  }
 }
 
 

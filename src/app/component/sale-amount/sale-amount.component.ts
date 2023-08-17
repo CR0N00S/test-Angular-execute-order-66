@@ -59,15 +59,15 @@ formatWithCommas(value: string): string {
 }
 
 submitAmount() {
-      // Remove commas and convert to a numeric value
-      const cleanedValue = this.enteredAmount.replace(/,/g, '');
+    // Remove commas and convert to a numeric value
+    const cleanedValue = this.enteredAmount.replace(/,/g, '');
     this.submittedAmountNumber = parseFloat(cleanedValue);
 
     // Format submittedAmountNumber with commas and two decimal places
     this.submittedAmountNumber = parseFloat((this.submittedAmountNumber).toFixed(2));
 
-    // Perform multiplication (using the formatted submittedAmountNumber)
-    this.multipliedAmount = this.submittedAmountNumber * 0.07;
+    // Perform multiplication (using the formatted submittedAmountNumber) and round up
+    this.multipliedAmount = Math.ceil(this.submittedAmountNumber * 0.07 * 100) / 100;
 
     // Format multiplied amount with commas for display
     this.multipliedAmount = parseFloat(this.multipliedAmount.toFixed(2));

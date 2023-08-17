@@ -6,15 +6,18 @@
             <div>
                 <p class="pad-30">Type of filing<span class="text-danger">*</span></p>
                 <div>
-                    <app-filing-type #filingTypeComponent></app-filing-type>
-                    <!-- <p>Selected option: {{ filingTypeComponent.selectedOption }}</p> -->
+
+                    <app-filing-type (filingTypeComponent)="onFilingTypeChange($event)"></app-filing-type>
+
+                    
+                    <p>Selected option: {{ selectedFilingTypeFromChild }}</p>
                 </div>
             </div>
     </div>
     <div class="pad-30">
 
 
-        <div *ngIf="filingTypeComponent.selectedOption === '0'">
+        <div *ngIf="selectedFilingTypeFromChild === '0'">
 
             <p class="pad-30">VAT Month<span class="text-danger">*</span></p>
             <app-month (monthSelected)="onMonthSelected($event)"></app-month>
@@ -47,7 +50,7 @@
 
 
 
-        <div *ngIf="filingTypeComponent.selectedOption === '1'">
+        <div *ngIf="selectedFilingTypeFromChild === '1'">
             <div style="display: flex;justify-content: space-between;">
                 <p >Tax Month<span class="text-danger">*</span></p>
                 

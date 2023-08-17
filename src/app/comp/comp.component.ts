@@ -31,6 +31,12 @@ export class CompComponent implements OnInit {
   selectedYearFromChild: string = new Date().getFullYear().toString();
   selectedTaxAmountFromChild: number | undefined;
   selectedSaleAmountFromChild: number = 0;
+  selectedFilingTypeFromChild: string = '0'; // Initialize with default value
+
+  onFilingTypeChange(selectedFilingType: string) {
+    this.selectedFilingTypeFromChild = selectedFilingType;
+    console.log('selected Filing Type From Child:', this.selectedFilingTypeFromChild);
+  }
 
   onMonthSelected(month: string) {
     this.selectedMonthFromChild = month;
