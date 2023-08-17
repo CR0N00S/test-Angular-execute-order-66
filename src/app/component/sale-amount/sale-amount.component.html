@@ -11,11 +11,13 @@
     <p>Formatted Multiplied Amount: {{ multipliedAmount | number:'1.2-2' }}</p>
   </div> -->
 
-  <div>
+  <div class="input-container">
     <label for="amount">Enter Sale Amount: </label>
-    <input type="text" id="amount" [(ngModel)]="enteredAmount" appNumericInput>
-    <button (click)="submitAmount()">Submit</button>
+    <input class="form-control" type="text" id="amount" [(ngModel)]="enteredAmount" appNumericInput>
+    <span class="currency-placeholder">THB</span>
+    
   </div>
+  <button (click)="submitAmount()">Submit</button>
   
   <div *ngIf="submittedAmountNumber !== null">
     <p>Submitted Amount as Number: {{ submittedAmountNumber }}</p>
