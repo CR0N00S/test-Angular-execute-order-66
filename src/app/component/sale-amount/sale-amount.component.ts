@@ -7,6 +7,7 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 })
 export class SaleAmountComponent implements OnInit {
 
+
   constructor() { }
 
   ngOnInit(): void {
@@ -34,30 +35,46 @@ export class SaleAmountComponent implements OnInit {
 //     // Format multiplied amount with commas for display
 //     this.multipliedAmount = parseFloat(this.multipliedAmount.toFixed(2));
 //   }
-  enteredAmount: string = '';
-  submittedAmountNumber: number = 0;
+enteredAmount: string = '';
+submittedAmountNumber: number = 0;
+multipliedAmount: number = 0;
 
-  handleInput(event: any) {
-    // Remove non-numeric characters and update the input value
-    const numericInput = event.target.value.replace(/[^0-9]/g, '');
-    this.enteredAmount = numericInput;
+handleInput(event: any) {
+  // Remove non-numeric characters except decimal point and update the input value
+  const numericInput = event.target.value.replace(/[^0-9.]/g, '');
+  
+  // Format the numeric input with commas
+  const formattedInput = this.formatWithCommas(numericInput);
 
-    // Format the input value with commas
-    this.enteredAmount = this.formatWithCommas(this.enteredAmount);
+  this.enteredAmount = formattedInput;
 
-    // Update the model value
-    this.submittedAmountNumber = parseInt(numericInput, 10);
-  }
+  // Update the model value
+  this.submittedAmountNumber = parseFloat(numericInput);
+}
 
-  formatWithCommas(value: string): string {
-    return value.replace(/\B(?=(\d{3})+(?!\d))/g, ',');
-  }
+formatWithCommas(value: string): string {
+  const parts = value.split('.');
+  parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+  return parts.join('.');
+}
 
-  submitAmount() {
-    // Convert the entered amount to a number
-    this.submittedAmountNumber = parseInt(this.enteredAmount.replace(/,/g, ''), 10);
+submitAmount() {
+      // Remove commas and convert to a numeric value
+      const cleanedValue = this.enteredAmount.replace(/,/g, '');
+    this.submittedAmountNumber = parseFloat(cleanedValue);
+
+    // Format submittedAmountNumber with commas and two decimal places
+    this.submittedAmountNumber = parseFloat((this.submittedAmountNumber).toFixed(2));
+
+    // Perform multiplication (using the formatted submittedAmountNumber)
+    this.multipliedAmount = this.submittedAmountNumber * 0.07;
+
+    // Format multiplied amount with commas for display
+    this.multipliedAmount = parseFloat(this.multipliedAmount.toFixed(2));
   }
 }
+
+
 
 
 

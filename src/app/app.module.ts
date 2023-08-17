@@ -14,6 +14,7 @@ import { MonthComponent } from './component/month/month.component';
 import { YearComponent } from './component/year/year.component';
 import { TaxAmountComponent } from './component/tax-amount/tax-amount.component';
 import { SaleAmountComponent } from './component/sale-amount/sale-amount.component';
+import { NumericInputDirective } from './component/numeric-input.directive';
 
 
 
@@ -29,7 +30,8 @@ import { SaleAmountComponent } from './component/sale-amount/sale-amount.compone
     MonthComponent,
     YearComponent,
     TaxAmountComponent,
-    SaleAmountComponent
+    SaleAmountComponent,
+    NumericInputDirective
   ],
   imports: [
     BrowserModule,
