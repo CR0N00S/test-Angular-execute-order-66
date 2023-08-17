@@ -77,9 +77,6 @@ export class CompComponent implements OnInit {
     console.log('Year:', this.selectedYearFromChild);
     console.log('Submitted Amount Number:', this.submittedAmountNumber);
     console.log('Multiplied Amount:', this.multipliedAmount);
-    if (this.selectedMonthFromChild==='' || this.submittedAmountNumber === 0 ){
-      console.log('got =',this.selectedMonthFromChild)
-      alert('Invalid Data');
-    }
+    
   }
 }
