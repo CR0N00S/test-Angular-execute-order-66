@@ -39,9 +39,9 @@ enteredAmount: string = '';
 submittedAmountNumber: number = 0;
 multipliedAmount: number = 0;
 
-handleInput(event: any) {
+updateAmount(newValue: string) {
   // Remove non-numeric characters except decimal point and update the input value
-  const numericInput = event.target.value.replace(/[^0-9.]/g, '');
+  const numericInput = newValue.replace(/[^0-9.]/g, '');
   
   // Format the numeric input with commas
   const formattedInput = this.formatWithCommas(numericInput);
@@ -50,6 +50,9 @@ handleInput(event: any) {
 
   // Update the model value
   this.submittedAmountNumber = parseFloat(numericInput);
+
+  // Update the multipliedAmount value
+  this.multipliedAmount = Math.round(this.submittedAmountNumber * 0.07 * 100) / 100;
 }
 
 formatWithCommas(value: string): string {
@@ -58,20 +61,6 @@ formatWithCommas(value: string): string {
   return parts.join('.');
 }
 
-submitAmount() {
-    // Remove commas and convert to a numeric value
-    const cleanedValue = this.enteredAmount.replace(/,/g, '');
-    this.submittedAmountNumber = parseFloat(cleanedValue);
-
-    // Format submittedAmountNumber with commas and two decimal places
-    this.submittedAmountNumber = parseFloat((this.submittedAmountNumber).toFixed(2));
-
-    // Perform multiplication (using the formatted submittedAmountNumber) and round up
-    this.multipliedAmount = Math.ceil(this.submittedAmountNumber * 0.07 * 100) / 100;
-
-    // Format multiplied amount with commas for display
-    this.multipliedAmount = parseFloat(this.multipliedAmount.toFixed(2));
-  }
 }
 
 
