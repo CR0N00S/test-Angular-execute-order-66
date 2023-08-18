@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-surcharge',
@@ -12,10 +12,12 @@ export class SurchargeComponent implements OnInit {
   ngOnInit(): void {
   }
   @Input() multipliedAmount: number = 0;
-
+  // @Output() surAmount:number = 0
+  @Output() surAmount: EventEmitter<number> = new EventEmitter<number>();
   get formattedAmount(): string {
-    
-    return this.formatWithCommasAndDecimal(Math.round(this.multipliedAmount * 0.1 * 100) / 100);
+    const calculatedValue = Math.round(this.multipliedAmount * 0.1 * 100) / 100;
+    this.surAmount.emit(calculatedValue);
+    return this.formatWithCommasAndDecimal(calculatedValue);
   }
 
   formatWithCommasAndDecimal(value: number): string {

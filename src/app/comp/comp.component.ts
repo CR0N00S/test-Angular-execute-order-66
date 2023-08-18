@@ -2,13 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { taxData } from '../tax-data.interface';
 import { DataSharingService } from '../service/data-sharing.service';
 import { Router } from '@angular/router';
-// interface taxData {
-//   filingType:string;
-//   month:string;
-//   year:string;
-//   saleAmount:Number;
-//   taxAmount:Number;
-// }
+
 
 @Component({
   selector: 'app-comp',
@@ -18,9 +12,7 @@ import { Router } from '@angular/router';
 
 
 export class CompComponent implements OnInit {
-  name: string = '';
-  isHidden: boolean = false;
-  storedToTaxData: taxData[] = [];
+
   
   constructor(  
     private dataSharingService: DataSharingService,
@@ -30,28 +22,22 @@ export class CompComponent implements OnInit {
   ngOnInit(): void {
   }
   
-  hideInputAndImage() {
-    this.isHidden = !this.isHidden;
-
-  }
-  input1: number = 0;
-  input2: number = 0;
-  input3: number = 0;
-  isDisabled: boolean = true; // Initially disable the inputs
-
-  toggleInputs() {
-    this.isDisabled = !this.isDisabled;
-  }
-
+  storedToTaxData: taxData[] = [];
   selectedMonthFromChild: string = '';
   selectedYearFromChild: string = new Date().getFullYear().toString();
-  // selectedSaleAmountFromChild: number = 0;
-  selectedFilingTypeFromChild: string = '0'; // Initialize with default value
-  // submittedAmountNumber: number = 0;
-  // submittedAmountNumber: number = 0;
+  selectedFilingTypeFromChild: string = '0'; 
   submittedAmountNumber: number = 0;
   multipliedAmount: number = 0;
   penalty: number = 0;
+  total:number = 0;
+  sur:number = 0 ;
+
+  totalValue(temp:number){
+    this.total=temp;
+  }
+  surValue(surva: number){
+    this.sur = surva;
+  }
 
   penaltyValue(penaltyAmount : number){
     this.penalty = penaltyAmount;
@@ -87,9 +73,6 @@ export class CompComponent implements OnInit {
     this.selectedYearFromChild = year;
     console.log('Selected year from child:', year);
   }
-  // onTaxAmountSelected(taxAmount: number) {
-  //   this.selectedTaxAmountFromChild = taxAmount;
-  // }
   
   onSubmit() {
     console.log('Filing:', this.selectedFilingTypeFromChild);

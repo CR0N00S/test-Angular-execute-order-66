@@ -17,6 +17,7 @@ import { SaleAmountComponent } from './component/sale-amount/sale-amount.compone
 import { NumericInputDirective } from './component/numeric-input.directive';
 import { SurchargeComponent } from './component/surcharge/surcharge.component';
 import { PenaltyComponent } from './component/penalty/penalty.component';
+import { TotalAmountComponent } from './component/total-amount/total-amount.component';
 
 
 
@@ -35,7 +36,8 @@ import { PenaltyComponent } from './component/penalty/penalty.component';
     SaleAmountComponent,
     NumericInputDirective,
     SurchargeComponent,
-    PenaltyComponent
+    PenaltyComponent,
+    TotalAmountComponent
   ],
   imports: [
     BrowserModule,
