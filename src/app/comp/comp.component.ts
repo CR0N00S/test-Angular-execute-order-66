@@ -1,15 +1,31 @@
 import { Component, OnInit } from '@angular/core';
+import { taxData } from '../tax-data.interface';
+import { DataSharingService } from '../Service/data-sharing.service';
+import { Router } from '@angular/router';
+// interface taxData {
+//   filingType:string;
+//   month:string;
+//   year:string;
+//   saleAmount:Number;
+//   taxAmount:Number;
+// }
 
 @Component({
   selector: 'app-comp',
   templateUrl: './comp.component.html',
   styleUrls: ['./comp.component.css']
 })
+
+
 export class CompComponent implements OnInit {
   name: string = '';
   isHidden: boolean = false;
-
-  constructor() { }
+  storedToTaxData: taxData[] = [];
+  
+  constructor(  
+    private dataSharingService: DataSharingService,
+    private router: Router
+    ) { }
 
   ngOnInit(): void {
   }
@@ -71,15 +87,41 @@ export class CompComponent implements OnInit {
   // }
   
   onSubmit() {
-    // console.log('Submit button clicked');
     console.log('Filing:', this.selectedFilingTypeFromChild);
     console.log('Month:', this.selectedMonthFromChild);
     console.log('Year:', this.selectedYearFromChild);
     console.log('Submitted Amount Number:', this.submittedAmountNumber);
     console.log('Multiplied Amount:', this.multipliedAmount);
     if (this.selectedMonthFromChild==='' || this.submittedAmountNumber === 0 ){
+      
       console.log('got =',this.selectedMonthFromChild)
       alert('Invalid Data');
+    }else{
+      console.log("Ok pass")
+      var temp_month = this.selectedMonthFromChild;
+      console.log(temp_month)
+      const sendData:taxData = {
+        filingType : this.selectedFilingTypeFromChild,
+        month : temp_month,
+        year : this.selectedYearFromChild,
+        saleAmount : this.submittedAmountNumber,
+        taxAmount : this.multipliedAmount
+      }
+      console.log(sendData);
+      this.storedToTaxData.push(sendData);
+      console.log(this.storedToTaxData)
+      this.dataSharingService.addTaxData(sendData);
+      this.resetForm();
+      this.router.navigate(['/pagetwo']);
     }
+    
+  }
+
+  resetForm() {
+    this.selectedFilingTypeFromChild = '0';
+    this.selectedMonthFromChild = '';
+    this.selectedYearFromChild = '';
+    this.submittedAmountNumber = 0;
+    this.multipliedAmount = 0;
   }
 }
