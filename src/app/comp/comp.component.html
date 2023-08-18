@@ -142,8 +142,8 @@
 <app-tax-amount></app-tax-amount> -->
 
 <app-surcharge [multipliedAmount]="multipliedAmount"></app-surcharge>
-<app-penalty></app-penalty>
 
+<app-penalty (penaltySent)="penaltyValue($event)"></app-penalty>
 
   
 

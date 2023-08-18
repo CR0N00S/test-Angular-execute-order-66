@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { taxData } from '../tax-data.interface';
-import { DataSharingService } from '../Service/data-sharing.service';
+import { DataSharingService } from '../service/data-sharing.service';
 import { Router } from '@angular/router';
 // interface taxData {
 //   filingType:string;
@@ -51,6 +51,11 @@ export class CompComponent implements OnInit {
   // submittedAmountNumber: number = 0;
   submittedAmountNumber: number = 0;
   multipliedAmount: number = 0;
+  penalty: number = 0;
+
+  penaltyValue(penaltyAmount : number){
+    this.penalty = penaltyAmount;
+  }
 
   onSaleAmountCalculated(multipliedAmount: number) {
     this.multipliedAmount = multipliedAmount;

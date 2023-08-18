@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { taxData } from '../tax-data.interface';
-import { DataSharingService } from '../Service/data-sharing.service';
+import { DataSharingService } from '../service/data-sharing.service';
 
 @Component({
   selector: 'app-comp-two',
