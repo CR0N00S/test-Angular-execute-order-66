@@ -83,8 +83,14 @@ export class CompComponent implements OnInit {
     console.log('penalty Amount:', this.penalty);
     console.log('sur Amount:', this.sur);
     console.log('total Amount:', this.total);
+    const Upper: number = this.multipliedAmount + 20;
+    const Lower: number = this.multipliedAmount - 20;
+    console.log('Multiplied Amount Upper :', Upper);
+    console.log('Multiplied Amount Lower:', Lower);
     if(this.selectedFilingTypeFromChild === '0'){
-      if (this.selectedMonthFromChild==='' || this.submittedAmountNumber === 0 ){
+      if (this.selectedMonthFromChild==='' || this.submittedAmountNumber === 0 
+      || this.multipliedAmount > Upper || this.multipliedAmount < Lower
+      ){
         // console.log('got =',this.selectedMonthFromChild)
         alert('Invalid Data');
       }else{

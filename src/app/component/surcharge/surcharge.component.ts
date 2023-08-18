@@ -21,6 +21,9 @@ export class SurchargeComponent implements OnInit {
   }
 
   formatWithCommasAndDecimal(value: number): string {
+    if (isNaN(value)) {
+      return '0';
+    }
     return value.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,');
   }
 }

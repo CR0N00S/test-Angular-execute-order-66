@@ -1,27 +1,9 @@
-<!-- <p>sale-amount works!</p> -->
-<!-- <div>
-    <label for="amount">Enter Sale Amount: </label>
-    <input type="text" id="amount" [(ngModel)]="enteredAmount" (input)="formatInput()">
-    <button (click)="submitAmount()">Submit</button>
-  </div>
-  
-  <div *ngIf="submittedAmountNumber !== null">
-    <p>Submitted Amount as Number: {{ submittedAmountNumber }}</p>
-    <p>Submitted Amount multiplied by 0.07: {{ multipliedAmount }}</p>
-    <p>Formatted Multiplied Amount: {{ multipliedAmount | number:'1.2-2' }}</p>
-  </div> -->
 <div style="display: grid;gap: 10px;">
   <div class="input-container">
     <input class="form-control"  type="text" id="amount" [(ngModel)]="enteredAmount" (ngModelChange)="updateAmount($event)"
     appNumericInput>
     <span class="currency-placeholder">THB</span>
   </div>
-  
-  <!-- <div *ngIf="submittedAmountNumber !== null">
-    
-    <app-tax-amount [multipliedAmount]="multipliedAmount"></app-tax-amount>
-  </div> -->
-
 </div>
   
   

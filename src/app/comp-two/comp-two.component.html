@@ -66,18 +66,11 @@
             <p><b>Total Amount Payable</b></p>
             <div *ngIf="storedTaxData">
                 <div *ngIf="storedTaxData.filingType === '1' else filingTypeIsZero">
-                    <!-- Content to show when condition is true -->
                     <b>{{ formatWithCommasAndDecimal(storedTaxData.totalAmount) }} THB</b>
                   </div>
                   <ng-template #filingTypeIsZero>
-                    <!-- Content to show when condition is false -->
                     <b>{{ formatWithCommasAndDecimal(storedTaxData.taxAmount) }} THB</b>
                   </ng-template>
-
-                <!-- <b>{{ formatWithCommasAndDecimal(storedTaxData.taxAmount) }} THB</b>
-                <div *ngIf="storedTaxData.filingType === '1'">
-                Additional Filing
-                </div> -->
             </div>
         </div>
     </div>
