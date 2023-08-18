@@ -13,3 +13,8 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
   4.now you can run it ``ng s``
 
 
+## สิ่งที่ยังไม่เสร็จ
+  1. input text ทุกตัวควรจะอยู่ด้านขว้า
+  2. +-20 ทำไม่ทัน
+  3. stepper 
+
