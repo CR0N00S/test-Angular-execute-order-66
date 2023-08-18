@@ -8,7 +8,7 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 export class MonthComponent implements OnInit {
   months: { name: string, disabled: boolean }[] = [];
 
-  selectedMonth: string = ''; // Store the selected month
+  selectedMonth: string = '';
 
   @Output() monthSelected = new EventEmitter<string>();
   constructor() {
@@ -27,9 +27,6 @@ export class MonthComponent implements OnInit {
 
     ngOnInit(): void {
     } 
-    // selectedMonth: string = '';
-
-    // @Output() monthSelected = new EventEmitter<string>();
 
     onMonthSelect() {
       this.monthSelected.emit(this.selectedMonth);

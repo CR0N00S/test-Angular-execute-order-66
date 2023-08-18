@@ -33,7 +33,7 @@
   </div>
   
   <p>Selected: {{ selectedOption }}</p> -->
-<div style=" display: flex;gap: 30px; bottom: 30px;left: 3.5%;position: relative;">
+<div class="fixPosition">
     <label>
         <input type="radio" name="option" value="0" [(ngModel)]="selectedOption" (change)="selectedChange()" checked> Ordinary Filing
       </label>

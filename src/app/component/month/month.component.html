@@ -1,6 +1,6 @@
 <!-- <p>month works!</p> -->
 <div>
-    <select [(ngModel)]="selectedMonth" (change)="onMonthSelect()">
+    <select class="form-select" [(ngModel)]="selectedMonth" (change)="onMonthSelect()">
       <option *ngFor="let month of months" [value]="month.name" [disabled]="month.disabled">{{ month.name }}</option>
     </select>
   </div>

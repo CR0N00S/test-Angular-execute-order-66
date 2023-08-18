@@ -6,10 +6,8 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
   styleUrls: ['./year.component.css']
 })
 export class YearComponent implements OnInit {
+  selectedYear: string = ''; 
   years: string[] = [];
-
-  selectedYear: string = new Date().getFullYear().toString(); // Default to current year
-
   @Output() yearSelected = new EventEmitter<string>();
 
   constructor() {
@@ -23,7 +21,8 @@ export class YearComponent implements OnInit {
 
   ngOnInit(): void {
   }
+
   onYearSelect() {
     this.yearSelected.emit(this.selectedYear);
-  } 
+  }
 }

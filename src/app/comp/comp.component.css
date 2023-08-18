@@ -22,4 +22,10 @@
 .form-control::placeholder {
     text-align: right;
  }
-  
+
+.vatMonthFix{
+    display: flex;
+    gap: 20px; 
+    position: relative; 
+    bottom: 45px;
+}

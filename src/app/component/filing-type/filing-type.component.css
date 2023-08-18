@@ -2,3 +2,11 @@
     display: flex;
     justify-content: space-between;
   }
+
+.fixPosition{
+  display: flex;
+  gap: 30px; 
+  bottom: 30px;
+  left: 3.5%;
+  position: relative;
+}
