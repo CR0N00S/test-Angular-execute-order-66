@@ -14,4 +14,8 @@ export class PenaltyComponent implements OnInit {
   }
   @Output() penaltySent = new EventEmitter<number>();
   penalty: number = 200;
+
+  formatWithCommasAndDecimal(value: number): string {
+    return value.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,');
+  }
 }
