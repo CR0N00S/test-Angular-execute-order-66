@@ -16,6 +16,7 @@ import { TaxAmountComponent } from './component/tax-amount/tax-amount.component'
 import { SaleAmountComponent } from './component/sale-amount/sale-amount.component';
 import { NumericInputDirective } from './component/numeric-input.directive';
 import { SurchargeComponent } from './component/surcharge/surcharge.component';
+import { PenaltyComponent } from './component/penalty/penalty.component';
 
 
 
@@ -33,7 +34,8 @@ import { SurchargeComponent } from './component/surcharge/surcharge.component';
     TaxAmountComponent,
     SaleAmountComponent,
     NumericInputDirective,
-    SurchargeComponent
+    SurchargeComponent,
+    PenaltyComponent
   ],
   imports: [
     BrowserModule,
