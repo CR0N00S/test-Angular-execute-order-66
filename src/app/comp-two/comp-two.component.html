@@ -14,7 +14,6 @@
                         Additional Filing
                     </div>
                 </div>
-                <!-- <p>value here</p> -->
             </div>
             <div class="little-gap">    
                 <p class=""><b>VAT Month</b></p>
@@ -22,8 +21,6 @@
                     {{ storedTaxData.month }}&nbsp;{{ storedTaxData.year }}
                     
                 </div>
-                
-                <!-- <p style="position: relative; left: 2%;">value here</p> -->
             </div>
         </div>
     </div>
@@ -39,21 +36,48 @@
             <div *ngIf="storedTaxData">
                 {{ formatWithCommasAndDecimal(storedTaxData.saleAmount) }} THB
             </div>
-            <!-- <p>value    THB</p> -->
         </div>
         <div class="r_L">
             <p><b>Total VAT to be remitted</b></p>
             <div *ngIf="storedTaxData">
                 {{ formatWithCommasAndDecimal(storedTaxData.taxAmount) }} THB
             </div>
-            <!-- <p>value    THB</p> -->
         </div>
         <p style="position: relative; bottom: 20px ;">(7%) of Total value of taxable electronic service excusive of VAT</p>
             
+        <div *ngIf="storedTaxData">
+            <div *ngIf="storedTaxData.filingType === '1'">
+                <div class="r_L">
+                    <p><b>Total Surcharge</b></p>
+                    <div *ngIf="storedTaxData">
+                        {{ formatWithCommasAndDecimal(storedTaxData.surcharge) }} THB
+                    </div>
+                </div>
+                <div class="r_L">
+                    <p><b>Total Penalty</b></p>
+                    <div *ngIf="storedTaxData">
+                        {{ formatWithCommasAndDecimal(storedTaxData.penalty) }} THB
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <div class="r_L">
-            <p>Total Amount Payable</p>
+            <p><b>Total Amount Payable</b></p>
             <div *ngIf="storedTaxData">
-                <b>{{ formatWithCommasAndDecimal(storedTaxData.taxAmount) }} THB</b>
+                <div *ngIf="storedTaxData.filingType === '1' else filingTypeIsZero">
+                    <!-- Content to show when condition is true -->
+                    <b>{{ formatWithCommasAndDecimal(storedTaxData.totalAmount) }} THB</b>
+                  </div>
+                  <ng-template #filingTypeIsZero>
+                    <!-- Content to show when condition is false -->
+                    <b>{{ formatWithCommasAndDecimal(storedTaxData.taxAmount) }} THB</b>
+                  </ng-template>
+
+                <!-- <b>{{ formatWithCommasAndDecimal(storedTaxData.taxAmount) }} THB</b>
+                <div *ngIf="storedTaxData.filingType === '1'">
+                Additional Filing
+                </div> -->
             </div>
         </div>
     </div>

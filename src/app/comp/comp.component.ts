@@ -29,11 +29,11 @@ export class CompComponent implements OnInit {
   submittedAmountNumber: number = 0;
   multipliedAmount: number = 0;
   penalty: number = 0;
-  total:number = 0;
   sur:number = 0 ;
-
+  total:number = 0;
+  
   totalValue(temp:number){
-    this.total=temp;
+    this.total = temp;
   }
   surValue(surva: number){
     this.sur = surva;
@@ -80,29 +80,69 @@ export class CompComponent implements OnInit {
     console.log('Year:', this.selectedYearFromChild);
     console.log('Submitted Amount Number:', this.submittedAmountNumber);
     console.log('Multiplied Amount:', this.multipliedAmount);
-    if (this.selectedMonthFromChild==='' || this.submittedAmountNumber === 0 ){
-      
-      console.log('got =',this.selectedMonthFromChild)
-      alert('Invalid Data');
-    }else{
-      console.log("Ok pass")
-      var temp_month = this.selectedMonthFromChild;
-      console.log(temp_month)
-      const sendData:taxData = {
-        filingType : this.selectedFilingTypeFromChild,
-        month : temp_month,
-        year : this.selectedYearFromChild,
-        saleAmount : this.submittedAmountNumber,
-        taxAmount : this.multipliedAmount
+    console.log('penalty Amount:', this.penalty);
+    console.log('sur Amount:', this.sur);
+    console.log('total Amount:', this.total);
+    if(this.selectedFilingTypeFromChild === '0'){
+      if (this.selectedMonthFromChild==='' || this.submittedAmountNumber === 0 ){
+        // console.log('got =',this.selectedMonthFromChild)
+        alert('Invalid Data');
+      }else{
+        console.log("Ok pass")
+        var temp_month = this.selectedMonthFromChild;
+        console.log(temp_month)
+        const sendData:taxData = {
+          filingType : this.selectedFilingTypeFromChild,
+          month : temp_month,
+          year : this.selectedYearFromChild,
+          saleAmount : this.submittedAmountNumber,
+          taxAmount : this.multipliedAmount,
+          surcharge :0,
+          penalty:0,
+          totalAmount:0
+        }
+        console.log(sendData);
+        this.storedToTaxData.push(sendData);
+        console.log(this.storedToTaxData)
+        this.dataSharingService.addTaxData(sendData);
+        this.resetForm();
+        this.router.navigate(['/pagetwo']);
       }
-      console.log(sendData);
-      this.storedToTaxData.push(sendData);
-      console.log(this.storedToTaxData)
-      this.dataSharingService.addTaxData(sendData);
-      this.resetForm();
-      this.router.navigate(['/pagetwo']);
+
+    }else if(this.selectedFilingTypeFromChild === '1'){
+
+      console.log('it ' ,this.selectedFilingTypeFromChild,' now')
+
+      if (this.selectedMonthFromChild==='' || this.submittedAmountNumber === 0 ){
+      
+        console.log('got =',this.selectedMonthFromChild)
+        alert('Invalid Data');
+      }else{
+        console.log("Ok pass")
+        var temp_month = this.selectedMonthFromChild;
+        console.log(temp_month)
+        const sendData:taxData = {
+          filingType : this.selectedFilingTypeFromChild,
+          month : temp_month,
+          year : this.selectedYearFromChild,
+          saleAmount : this.submittedAmountNumber,
+          taxAmount : this.multipliedAmount,
+          surcharge :this.sur,
+          penalty:this.penalty,
+          totalAmount:this.total
+        }
+        console.log(sendData);
+        this.storedToTaxData.push(sendData);
+        console.log(this.storedToTaxData)
+        this.dataSharingService.addTaxData(sendData);
+        this.resetForm();
+        this.router.navigate(['/pagetwo']);
+      }
+
+    }else{
+      alert('Somethig error');
     }
-    
+
   }
 
   resetForm() {

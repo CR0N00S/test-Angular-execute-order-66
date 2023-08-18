@@ -4,4 +4,7 @@ export interface taxData {
     year: string;
     saleAmount: number;
     taxAmount: number;
+    surcharge:number;
+    penalty:number;
+    totalAmount:number;
   }
