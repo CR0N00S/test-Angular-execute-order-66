@@ -14,7 +14,6 @@ export class CompTwoComponent implements OnInit {
 
   ngOnInit() {
     this.dataSharingService.taxData$.subscribe(data => {
-            // Assuming you want to display the latest data
             this.storedTaxData = data[data.length - 1];
         });
   }

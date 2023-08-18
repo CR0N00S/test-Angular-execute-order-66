@@ -15,6 +15,7 @@ import { YearComponent } from './component/year/year.component';
 import { TaxAmountComponent } from './component/tax-amount/tax-amount.component';
 import { SaleAmountComponent } from './component/sale-amount/sale-amount.component';
 import { NumericInputDirective } from './component/numeric-input.directive';
+import { SurchargeComponent } from './component/surcharge/surcharge.component';
 
 
 
@@ -31,7 +32,8 @@ import { NumericInputDirective } from './component/numeric-input.directive';
     YearComponent,
     TaxAmountComponent,
     SaleAmountComponent,
-    NumericInputDirective
+    NumericInputDirective,
+    SurchargeComponent
   ],
   imports: [
     BrowserModule,
