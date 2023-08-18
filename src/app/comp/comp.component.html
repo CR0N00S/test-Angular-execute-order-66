@@ -6,11 +6,9 @@
             <div>
                 <p class="pad-30">Type of filing<span class="text-danger">*</span></p>
                     <app-filing-type (filingTypeComponent)="onFilingTypeChange($event)"></app-filing-type> 
-                    <!-- <p>Selected option: {{ selectedFilingTypeFromChild }}</p> -->
             </div>
     </div>
     <div class="pad-30" style="position: relative; bottom: 50px;">
-        <!-- <div *ngIf="selectedFilingTypeFromChild === '0'"> -->
             <div *ngIf="selectedFilingTypeFromChild === '0'">
                 <p class="pad-30">VAT Month<span class="text-danger">*</span></p>
             </div>
@@ -19,10 +17,8 @@
             </div>
             <div class="pad-30 vatMonthFix">
                 <app-month (monthSelected)="onMonthSelected($event)"></app-month>
-                <!-- <p>Selected month: {{ selectedMonthFromChild }}</p> -->
     
                 <app-year (yearSelected)="onYearSelected($event)"></app-year>
-                <!-- <p>Selected year: {{ selectedYearFromChild }}</p> -->
             </div>
             
             <div>
@@ -64,84 +60,27 @@
                 <b>In case of late filling and payment,or additional filling</b>
                 <div class="r_L" style="padding: 20px;">
                     <p>3.Surcharge</p>
-                    <!-- <input type="number" [(ngModel)]="input1" [disabled]="isDisabled"> -->
                     <app-surcharge [multipliedAmount]="multipliedAmount" (surAmount)="surValue($event)" ></app-surcharge>
                 </div>
                 <div class="r_L"style="padding: 20px;" >
                     <p>4.Penalty</p>
-                    <!-- <input type="number" [(ngModel)]="input2" [disabled]="isDisabled"> -->
                     <app-penalty (penaltySent)="penaltyValue($event)"></app-penalty>
                 </div>
                 <div class="r_L" style="padding: 20px;">
                         <p>5.Total amount of VAT , surcharge , and penalty to be remitted </p>
-                    <!-- <input type="number" [(ngModel)]="input3" [disabled]="isDisabled"> -->
                         <app-total-amount [surSend]="sur" [multipliedAmount]="multipliedAmount" [penaltySend]="penalty"
                         (totalAmount)="totalValue($event)"  ></app-total-amount>
                 </div>
                 <p style="position: relative; bottom: 35px;left: 35px;">( 2 + 3 + 4 )</p>
             </div>
-            
-        <!-- </div> -->
-
-
-
-
-        <!-- <div *ngIf="selectedFilingTypeFromChild === '1'">
-            <div style="display: flex;justify-content: space-between;">
-                <p >Tax Month<span class="text-danger">*</span></p>
-                <p>Type<span class="text-danger">*</span></p>
-            </div>
-            
-
-            <div>
-                <h2 class="d-flex justify-content-between"><b>2.Tax Computation</b></h2> 
-            </div>
-           
-            <hr class="my-3 border-3">
-            <p><b>Provide total value taxable electronic service</b></p>
-        
-            <div class="r_L">
-                <p>1.Underdeclared Thai taxable electronic service</p>
-                <div class="input-group mb-3" style="width: 30%;">
-                    <input type="number" class="form-control" name="" id="" placeholder="THB">
-                </div>
-            </div>
-            <div class="r_L">
-                <p>2.Total VAT to be remitted (7% of 1.)</p>
-                <div class="input-group mb-3" style="width: 30%;">
-                    
-                </div>
-            </div>
-            <b>In case of late filling and payment,or additional filling</b>
-            <div class="r_L" style="padding: 20px;">
-                <p>3.Surcharge</p>
-                <input type="number" [(ngModel)]="input1" [disabled]="isDisabled">
-            </div>
-            <div class="r_L"style="padding: 20px;" >
-                <p>4.Penalty</p>
-                <input type="number" [(ngModel)]="input2" [disabled]="isDisabled">
-            </div>
-            <div class="r_L" style="padding: 20px;">
-                    <p>5.Total amount of VAT , surcharge , and penalty to be remitted </p>
-                <input type="number" [(ngModel)]="input3" [disabled]="isDisabled">
-            </div>
-            <p style="position: relative; bottom: 35px;left: 35px;">( 2 + 3 + 4 )</p>
-        </div> -->
-
+   
     </div>
    
 </div>
 <div class="container rounded button-location"  style="padding-bottom: 20px;">
         <button type="button" class="btn btn-outline-dark ">Back</button>
-        <!-- <button type="submit" routerLink="/pagetwo" class="btn btn-outline-dark">Next</button> -->
         <button class="btn btn-outline-dark" (click)="onSubmit()">Next</button>
 </div>
-
-<!-- 
-<h2>test</h2>
-<app-sale-amount></app-sale-amount> -->
-<!-- <app-sale-amount></app-sale-amount>
-<app-tax-amount></app-tax-amount> -->
 
 
 

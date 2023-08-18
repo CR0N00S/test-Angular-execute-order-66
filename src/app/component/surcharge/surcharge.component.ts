@@ -12,7 +12,6 @@ export class SurchargeComponent implements OnInit {
   ngOnInit(): void {
   }
   @Input() multipliedAmount: number = 0;
-  // @Output() surAmount:number = 0
   @Output() surAmount: EventEmitter<number> = new EventEmitter<number>();
   get formattedAmount(): string {
     const calculatedValue = Math.round(this.multipliedAmount * 0.1 * 100) / 100;
