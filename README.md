@@ -14,7 +14,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 ## Component 
   comp หน้าแรก <br>
-  comp-two หน้า2หลังจากกดหน้าแรกผ่านมาแล้ว
+  comp-two หน้า2หลังจากกดหน้าแรกผ่านมาแล้ว <br>
   ที่เหลือตามใน requirement
 
 ## สิ่งที่ยังไม่เสร็จ
