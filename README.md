@@ -13,7 +13,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
   4.now you can run it ``ng s``
 
 ## Component 
-  comp หน้าแรก
+  comp หน้าแรก <br>
   comp-two หน้า2หลังจากกดหน้าแรกผ่านมาแล้ว
   ที่เหลือตามใน requirement
 
